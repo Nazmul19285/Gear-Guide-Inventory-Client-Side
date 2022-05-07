@@ -15,8 +15,9 @@ const Header = () => {
                     </div>
                     <ul className={`lg:flex ${open ? 'top-16 absolute right-0 bg-gray-50 p-4' : 'hidden'}`}>
                         <li className='lg:mr-8 font-medium'><CustomLink to="/">Home</CustomLink></li>
-                        <li className='lg:mr-8 font-medium'><CustomLink to="/items" >Inventory</CustomLink></li>
+                        <li className='lg:mr-8 font-medium'><CustomLink to="/inventory" >Inventory</CustomLink></li>
                         <li className='lg:mr-8 font-medium'><CustomLink to="/blogs">Blogs</CustomLink></li>
+                        <li className='lg:mr-8 font-medium'><CustomLink to="/login">Login</CustomLink></li>
                     </ul>
                 </div>
             </div>

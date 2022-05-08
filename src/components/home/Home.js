@@ -13,6 +13,7 @@ import slider_3 from '../../images/slider-3.jpg';
 import useItems from '../../hooks/useItems';
 import ShowItems from '../showItem/ShowItems';
 import { useNavigate } from 'react-router-dom';
+import Account from '../account/Account';
 
 
 const Home = () => {
@@ -40,6 +41,9 @@ const Home = () => {
                 <div className='my-4 flex justify-end'>
                     <button onClick={navigateToInventory} className='bg-orange-400 py-2 px-6 rounded text-white hover:text-black'>Go to Inventory</button>
                 </div>
+            </div>
+            <div>
+                <Account></Account>
             </div>
             <div className='bg-red-900 p-20'>
                 footer

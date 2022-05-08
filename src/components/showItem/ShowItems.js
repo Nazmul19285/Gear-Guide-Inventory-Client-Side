@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 const ShowItems = (props) => {
     const { _id, image, name, category, price, quantity, supplier } = props.item;
     const [item, setItem] = useState({});
+    const [account, setAccount] = useState([]);
     const [handler, setHandler] = useState(false);
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
@@ -13,6 +14,13 @@ const ShowItems = (props) => {
     const navigateToDetailsAndUpdate = (_id) => {
         navigate(`/inventory/${_id}`);
     }
+
+    useEffect(() => {
+        const url =`http://localhost:5000/account`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setAccount(data));
+    },[])
 
     useEffect(() => {
         const url =`http://localhost:5000/items/${_id}`;
@@ -27,6 +35,7 @@ const ShowItems = (props) => {
             if(quantity > 0){
                 setItem({name: item.name,image: item.image,description: item.description,supplier: item.supplier,category: item.category,price: item.price,quantity: item.quantity-1});
                 setHandler(!handler);
+                handleAccount();
             }
             else{
                 alert("Out of Stock!");
@@ -37,6 +46,7 @@ const ShowItems = (props) => {
         }
     }
 
+    // decreasing quantity by updating into database
     const decrease = async() => {
         const url =`http://localhost:5000/items/${_id}`;
         await fetch(url, {
@@ -52,9 +62,36 @@ const ShowItems = (props) => {
         });
     }
 
+    // update account into database
+    const updateAccount = async() => {
+        const url =`http://localhost:5000/account/${account._id}`;
+        await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(account)
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result);
+        });
+    }
+
+
+
     if(handler){
         decrease();
         setHandler(!handler);
+        updateAccount();
+        console.log(account);
+    }
+
+    const handleAccount = () =>{
+        const totalSell = (~~account[0].sell ) + (~~item.price);
+        const totalProduct = (~~account[0].product) + 1;
+        const accountId = account[0]._id;
+        setAccount({_id: accountId, sell: totalSell, product: totalProduct});
     }
 
     return (

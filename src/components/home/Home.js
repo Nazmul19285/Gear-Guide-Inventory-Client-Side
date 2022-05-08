@@ -30,7 +30,8 @@ const Home = () => {
                     <SwiperSlide><img src={slider_3} alt="" /></SwiperSlide>
                 </Swiper>
             </div>
-            <div className='mx-4 mt-4 lg:w-9/12 lg:mx-auto '>
+            <div className='mx-4 lg:w-9/12 lg:mx-auto'>
+                <h1 className='text-center text-4xl font-bold py-10'>Our Products</h1>
                 <div className='lg:grid lg:grid-cols-3 lg:gap-4'>
                     {
                         allItems.slice(0, 6).map(item => <ShowItems key={item._id} item={item}></ShowItems>)

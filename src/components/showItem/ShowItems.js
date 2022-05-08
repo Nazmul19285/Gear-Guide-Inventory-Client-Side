@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const ShowItems = (props) => {
     const { _id, image, name, category, price, quantity, supplier } = props.item;
     const [item, setItem] = useState({});
     const [handler, setHandler] = useState(false);
     const navigate = useNavigate();
+    const [user] = useAuthState(auth);
 
     const navigateToDetailsAndUpdate = (_id) => {
         navigate(`/inventory/${_id}`);
@@ -20,12 +23,17 @@ const ShowItems = (props) => {
 
 
     const deliverItem = () => {
-        if(quantity > 0){
-            setItem({name: item.name,image: item.image,description: item.description,supplier: item.supplier,category: item.category,price: item.price,quantity: item.quantity-1});
-            setHandler(!handler);
+        if(user){
+            if(quantity > 0){
+                setItem({name: item.name,image: item.image,description: item.description,supplier: item.supplier,category: item.category,price: item.price,quantity: item.quantity-1});
+                setHandler(!handler);
+            }
+            else{
+                alert("Out of Stock!");
+            }
         }
         else{
-            alert("Out of Stock!");
+            alert('Please login first');
         }
     }
 

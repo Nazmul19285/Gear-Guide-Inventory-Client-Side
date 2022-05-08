@@ -35,6 +35,10 @@ const ProductDetails = () => {
         }
     }
 
+    const navigateToUpdate = (id) => {
+        navigate(`/update/${id}`);
+    }
+
     return (
         <div className='lg:w-1/2 lg:mx-auto px-4 border'>
             <div>
@@ -53,7 +57,7 @@ const ProductDetails = () => {
                         desArray.map(des => <p key={des} className='mb-2'><FontAwesomeIcon icon={faCircleArrowRight} /> {des}</p>)
                     }
                     <div className='flex justify-between my-6 '>
-                        <button className='bg-orange-400 py-2 px-8 rounded text-white hover:text-black'>Update</button>
+                        <button onClick={() => navigateToUpdate(item._id)} className='bg-orange-400 py-2 px-8 rounded text-white hover:text-black'>Update</button>
                         <button onClick={() => deleteItem(item._id)} className='bg-orange-400 py-2 px-8 rounded text-white hover:text-black'>Delete</button>
                     </div>
                 </div>

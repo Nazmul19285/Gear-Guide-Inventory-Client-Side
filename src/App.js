@@ -8,6 +8,7 @@ import Home from './components/home/Home';
 import Inventory from './components/inventory/Inventory';
 import Login from './components/login/Login';
 import ProductDetails from './components/productDetails/ProductDetails';
+import UpdateItem from './components/updateItem/UpdateItem';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/blogs' element={<Blogs></Blogs>}></Route>
       <Route path='/additem' element={<AddItem></AddItem>}></Route>
       <Route path='/inventory/:id' element={<ProductDetails></ProductDetails>}></Route>
+      <Route path='/update/:id' element={<UpdateItem></UpdateItem>}></Route>
       <Route path='/login' element={<Login></Login>}></Route>
     </Routes>
   </>

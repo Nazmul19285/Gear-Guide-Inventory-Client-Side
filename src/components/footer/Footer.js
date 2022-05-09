@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='bg-gray-900 py-12'>
+        <div className='bg-gray-900 py-12 mt-20'>
             <div className='flex justify-center items-center'>
                 <div className='mr-2'>
                     <a href="https://www.facebook.com/profile.php?id=100009025605636" target="blank">

@@ -13,7 +13,7 @@ const AddItem = () => {
             quantity:`${e.target[6].value}`
         }
         console.log(data);
-        const url = `http://localhost:5000/items`;
+        const url = `https://infinite-reaches-79357.herokuapp.com/items`;
         fetch(url, {
             method: 'POST',
             headers: {

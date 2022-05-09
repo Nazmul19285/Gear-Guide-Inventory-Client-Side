@@ -4,7 +4,7 @@ const useAccount = () => {
     const [account, setAccount] = useState([]);
 
     useEffect( () => {
-        fetch("http://localhost:5000/account")
+        fetch("https://infinite-reaches-79357.herokuapp.com/account")
         .then(res => res.json())
         .then(data => setAccount(data))
     }, []);

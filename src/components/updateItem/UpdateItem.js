@@ -7,7 +7,7 @@ const UpdateItem = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url =`http://localhost:5000/items/${id}`;
+        const url =`https://infinite-reaches-79357.herokuapp.com/items/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setItem(data));
@@ -39,7 +39,7 @@ const UpdateItem = () => {
 
     const handleUpdateItem = (e) => {
         e.preventDefault();
-        const url =`http://localhost:5000/items/${id}`;
+        const url =`https://infinite-reaches-79357.herokuapp.com/items/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

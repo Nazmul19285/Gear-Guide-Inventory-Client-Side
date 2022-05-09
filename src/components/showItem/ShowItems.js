@@ -16,14 +16,14 @@ const ShowItems = (props) => {
     }
 
     useEffect(() => {
-        const url =`http://localhost:5000/account`;
+        const url =`https://infinite-reaches-79357.herokuapp.com/account`;
         fetch(url)
         .then(res => res.json())
         .then(data => setAccount(data));
     },[])
 
     useEffect(() => {
-        const url =`http://localhost:5000/items/${_id}`;
+        const url =`https://infinite-reaches-79357.herokuapp.com/items/${_id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setItem(data));
@@ -48,7 +48,7 @@ const ShowItems = (props) => {
 
     // decreasing quantity by updating into database
     const decrease = async() => {
-        const url =`http://localhost:5000/items/${_id}`;
+        const url =`https://infinite-reaches-79357.herokuapp.com/items/${_id}`;
         await fetch(url, {
             method: 'PUT',
             headers: {
@@ -64,7 +64,7 @@ const ShowItems = (props) => {
 
     // update account into database
     const updateAccount = async() => {
-        const url =`http://localhost:5000/account/${account._id}`;
+        const url =`https://infinite-reaches-79357.herokuapp.com/account/${account._id}`;
         await fetch(url, {
             method: 'PUT',
             headers: {

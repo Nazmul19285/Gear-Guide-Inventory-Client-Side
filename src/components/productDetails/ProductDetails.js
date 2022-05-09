@@ -10,7 +10,7 @@ const ProductDetails = () => {
     let desArray = [];
 
     useEffect(() => {
-        const url = `http://localhost:5000/items/${id.id}`;
+        const url = `https://infinite-reaches-79357.herokuapp.com/items/${id.id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setItem(data));
@@ -24,7 +24,7 @@ const ProductDetails = () => {
     const deleteItem = (id) => {
         const proceed = window.confirm('Are you sure?');
         if(proceed){
-            const url = `http://localhost:5000/items/${id}`;
+            const url = `https://infinite-reaches-79357.herokuapp.com/items/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

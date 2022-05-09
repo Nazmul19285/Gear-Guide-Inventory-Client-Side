@@ -3,7 +3,8 @@ import ShowItems from '../showItem/ShowItems';
 
 const AllItems = () => {
     const [allItems] = useItems();
-
+    console.log(allItems);
+    
     return (
         <div className='lg:grid lg:grid-cols-3 lg:gap-4'>
             {

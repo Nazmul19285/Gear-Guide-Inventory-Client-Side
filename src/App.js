@@ -1,7 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import About from './components/about/About';
 import AddItem from './components/addItem/AddItem';
 import Blogs from './components/blogs/Blogs';
+import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import Inventory from './components/inventory/Inventory';
@@ -28,8 +30,10 @@ function App() {
       <Route path='/register' element={<Register></Register>}></Route>
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/forgetpassword' element={<PasswordReset></PasswordReset>}></Route>
+      <Route path='/about' element={<About></About>}></Route>
       <Route path='*' element={<NotFound></NotFound>}></Route>
     </Routes>
+    <Footer></Footer>
   </>
   );
 }

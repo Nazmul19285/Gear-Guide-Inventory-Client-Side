@@ -14,6 +14,8 @@ import useItems from '../../hooks/useItems';
 import ShowItems from '../showItem/ShowItems';
 import { useNavigate } from 'react-router-dom';
 import Account from '../account/Account';
+import Footer from '../footer/Footer';
+import Contact from '../contact/Contact';
 
 
 const Home = () => {
@@ -45,8 +47,8 @@ const Home = () => {
             <div>
                 <Account></Account>
             </div>
-            <div className='bg-red-900 p-20'>
-                footer
+            <div>
+                <Contact></Contact>
             </div>
         </div>
     );

@@ -95,7 +95,7 @@ const ShowItems = (props) => {
     }
 
     return (
-        <div className='border rounded mb-4 lg:mb-0'>
+        <div className='border bg-gray-50 hover:drop-shadow-xl rounded mb-4 lg:mb-0 hover:-translate-y-1.5 hover:-translate-x-1.5'>
             <img className='w-full mb-2' src={image} alt="not found" />
             <div className='px-4'>
                 <h1 className='text-xl font-bold'>{name}</h1>

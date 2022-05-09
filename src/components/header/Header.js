@@ -13,9 +13,13 @@ const Header = () => {
         signOut(auth);
     }
     return (
-        <div className='bg-orange-400 py-4'>
+        <div className='bg-orange-400 py-4 sticky top-0 z-50'>
             <div className='flex justify-between items-center sticky top-0 z-50 py-4 w-11/12 mx-auto'>
-                <img src={logo} alt="" srcset="" />
+                <div>
+                    <a href="/home">
+                        <img src={logo} alt="" srcset="" />
+                    </a>
+                </div>
                 <div>
                     <div className='w-6 h-6 lg:hidden' onClick={() => setOpen(!open)}>
                         <MenuIcon></MenuIcon>
@@ -24,6 +28,7 @@ const Header = () => {
                         <li className='lg:mr-8 text-lg font-medium'><CustomLink to="/">Home</CustomLink></li>
                         <li className='lg:mr-8 text-lg font-medium'><CustomLink to="/inventory" >Inventory</CustomLink></li>
                         <li className='lg:mr-8 text-lg font-medium'><CustomLink to="/blogs">Blogs</CustomLink></li>
+                        <li className='lg:mr-8 text-lg font-medium'><CustomLink to="/about" >About</CustomLink></li>
                         <li className='lg:mr-8 text-lg font-medium'>{
                             user ? 
                                 <button onClick={handleLogout}>Logout</button>

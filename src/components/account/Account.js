@@ -5,7 +5,7 @@ import ShowAccount from '../getAccount/ShowAccount';
 const Account = () => {
     const [account] = useAccount();
     return (
-        <div>
+        <div className=''>
             {
                 account.map(ac => <ShowAccount key={ac._id} ac={ac}></ShowAccount>)
             }

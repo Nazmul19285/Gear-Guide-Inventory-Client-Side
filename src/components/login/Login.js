@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
@@ -11,6 +11,7 @@ const Login = () => {
     let from = location.state?.from?.pathname || '/';
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, userFacebook, loadingFacebook, errorFacebook] = useSignInWithFacebook(auth);
 
     const handleEmail = (event) =>{
         setEmail(event.target.value);
@@ -24,7 +25,7 @@ const Login = () => {
         await signInWithEmailAndPassword(email,password);
     }
 
-    if(loading || loadingGoogle){
+    if(loading || loadingGoogle || loadingFacebook){
         return <h1>Loading...</h1>
     }
     if (error) {
@@ -34,14 +35,14 @@ const Login = () => {
           </div>
         );
     }
-    if (errorGoogle) {
+    if (errorGoogle || errorFacebook) {
         return (
           <div>
             <p>Error: {errorGoogle.message}</p>
           </div>
         );
     }
-    if(user || userGoogle){
+    if(user || userGoogle || userFacebook){
         navigate(from, { replace: true });
     }
 
@@ -69,7 +70,10 @@ const Login = () => {
                 <div className='mt-6'>
                     <p className='text-md text-gray-600 mb-2'>Login with</p>
                     <div>
-                        <button onClick={() => signInWithGoogle()} className='bg-indigo-400 text-white text-xl text-white w-96 py-2 hover:text-black'>Google</button>
+                        <button onClick={() => signInWithGoogle()} className='bg-green-500 text-white text-xl text-white w-96 py-2 mb-4 hover:text-black'>Google</button>
+                    </div>
+                    <div>
+                        <button onClick={() => signInWithFacebook()} className='bg-purple-500 text-white text-xl text-white w-96 py-2 hover:text-black'>Facebook</button>
                     </div>
                 </div>
             </div>

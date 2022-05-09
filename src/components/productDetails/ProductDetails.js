@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const ProductDetails = () => {
     const id = useParams();
@@ -22,7 +22,7 @@ const ProductDetails = () => {
     }
 
     const deleteItem = (id) => {
-        const proceed = window.confirm('are you sure');
+        const proceed = window.confirm('Are you sure?');
         if(proceed){
             const url = `http://localhost:5000/items/${id}`;
             fetch(url, {

@@ -10,5 +10,9 @@ In recent days video content has its huge acceptance and craze over the others. 
 
 ### About the project
 
+I used ReactJS for Client side development and NodeJS for Server side development. I used MongoDb for the Database. For Login Authentication I used Firebase. The server side in deployed on Heroku and the website is hosted on Firebase.
 
+#### Future Work
+
+I'm working on category for sorting data and keyword based search option. The feature will be enable soon.
 

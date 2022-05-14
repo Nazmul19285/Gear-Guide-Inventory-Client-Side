@@ -16,3 +16,4 @@ I used ReactJS for Client side development and NodeJS for Server side developmen
 
 I'm working on category for sorting data and keyword based search option. The feature will be enable soon.
 
+# Gear-Guide-Inventory-Client-Side
